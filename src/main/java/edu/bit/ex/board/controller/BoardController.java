@@ -41,10 +41,20 @@ public class BoardController {
 //	}
 
 	@GetMapping("/board/list")
-	public void list(Model model)throws Exception {
+	public String list(Model model)throws Exception {
 		log.info("list()");
 		model.addAttribute("list",  boardService.getList());
+		return "board/list";
 	}
+	
+	//ajaxList
+	@GetMapping("/board/ajaxList")
+	public String akaxList(Model model)throws Exception {
+		log.info("list()");
+		model.addAttribute("list",  boardService.getList());
+		return "board/ajaxList";
+	}
+	
 	
 	//페이징 처리 리스트
 	@GetMapping("/board/list2")
@@ -65,7 +75,7 @@ public class BoardController {
 	@GetMapping("/board/write_view")
 	public String write_view(Model model) throws Exception {
 		log.info("/board/write_view");
-		return "/board/write_view";
+		return "board/write_view";
 	}
 
 	@PostMapping("/board/write")
@@ -80,7 +90,7 @@ public class BoardController {
 		log.info("content_view");
 		boardService.upHit(boardVO);
 		model.addAttribute("content_view", boardService.getBoard(boardVO.getbId()));
-		return "/board/content_view";
+		return "board/content_view";
 	}
 
 	@PostMapping("/board/modify")

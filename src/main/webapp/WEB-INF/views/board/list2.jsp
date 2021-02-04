@@ -409,8 +409,18 @@
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">DataTables
-								Example</h6>
+								Example</h6><br>
+							<div class="form-group row pull-right">
+								<div class="col-xs-8">
+									<input class="form-control" type="text"  size="20">
+								</div>
+								<div class="col-xs-2">
+									<button class="btn btn-primary" type="button"> 검색 </button>
+								</div>
+							</div>
+						
 						</div>
+						
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%"
@@ -451,12 +461,12 @@
 								<%-- 			<div class='pull-right'>
 									<ul class="pagination">
 										<c:if test="${pageMaker.prev}">
-											<li class="paginate_button previous"><a
-												href="${pageMaker.startPage -1} }">Previous</a></li>
+											<li class="paginate_button previous">
+												<a href="${pageMaker.startPage -1} }">Previous</a>
+											</li>
 										</c:if>
 
-										<c:forEach var="num" begin="${pageMaker.startPage}"
-											end="${pageMaker.endPage}">
+										<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 											<li class="pagenate_button ${pageMaker.cri.pageNum == num ? "active" : "" }">
 												<a href="${num}"> ${num} &nbsp;</a>
 											</li>
@@ -469,20 +479,20 @@
 										</c:if>
 									</ul>
 								</div> --%>
-								
-								<c:if test="${pageMaker.prev}">
-									<a href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-								</c:if>
-
-								<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-									<c:out value="${pageMaker.cri.pageNum == idx?'':''}" />
-									<a href="list2${pageMaker.makeQuery(idx)}">${idx}</a>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<a href="list2${pageMaker.makeQuery(pageMaker.endPage +1) }">
-										» </a>
-								</c:if>
+								<ul class="pagination">
+						          <c:if test="${pageMaker.prev}">
+						          	<li class="paginate_button previous"><a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.startPage - 1)}">Prev</a></li>
+						          </c:if>
+						          
+						          <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+						          	<c:out value="${pageMaker.cri.pageNum == idx?'':''}"/>
+									<li class="paginate_button" ><a class="page-link" href="list2${pageMaker.makeQuery(idx)}">${idx}</a></li>
+								  </c:forEach>
+								  
+								  <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								  	<li class="paginate_button next"><a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.endPage + 1)}">Next</a></li>
+								  </c:if>
+							  </ul>
 								<br>
 
 	<%-- 							<form id="actionForm" action="/board/list" method="get">

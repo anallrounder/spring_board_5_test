@@ -1,9 +1,11 @@
-package edu.bit.ex.calculator;
+package edu.bit.ex.board.calculator;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.bit.ex.calculator.Calculator;
 
 public class CalculatorTest {
 	

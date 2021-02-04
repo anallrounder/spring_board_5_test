@@ -1,4 +1,4 @@
-package edu.bit.ex.database;
+package edu.bit.ex.board.database;
 
 import static org.junit.Assert.assertNotNull;
 
