@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.bit.ex.board.page.Criteria;
 import edu.bit.ex.board.page.PageVO;
@@ -26,6 +27,16 @@ public class BoardController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
+	 //ajaxList
+	 @RequestMapping("/rest/list") 
+	 public String restList(Model model)throws Exception { 
+		 log.info("ajaxList"); 
+		 return "rest/list"; 
+	 }
+	 
+	//ajax_content_view
+
 //	@GetMapping("/board/tables")
 //	public String tables(Model model) throws Exception {
 //		log.info("tables");
@@ -46,15 +57,6 @@ public class BoardController {
 		model.addAttribute("list",  boardService.getList());
 		return "board/list";
 	}
-	
-	//ajaxList
-	@GetMapping("/board/ajaxList")
-	public String akaxList(Model model)throws Exception {
-		log.info("list()");
-		model.addAttribute("list",  boardService.getList());
-		return "board/ajaxList";
-	}
-	
 	
 	//페이징 처리 리스트
 	@GetMapping("/board/list2")

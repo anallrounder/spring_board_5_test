@@ -7,7 +7,8 @@
 	<title>Insert title here</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
-/* 	$.ajax({
+	
+	/* 	$.ajax({
 		url : '서비스 주소'
 			, data : '서비스 처리에 필요한 인자값'
 			, type : 'HTTP방식' (POST/GET 등)
@@ -20,14 +21,14 @@
 		}); */
 
 		function getList() {
-			var url = "${pageContext.request.contextPath}/rest/after.json";
+			var url ="${pageContext.request.contextPath}/rest/after.json"; // 아까 컨트롤러에서 처리함
 
 			$.ajax({
 	            type: 'GET',
 	            url: url,
 	            cache : false, // 이걸 안쓰거나 true하면 수정해도 값반영이 잘안댐
 	            dataType: 'json',// 데이터 타입을 제이슨 꼭해야함, 다른방법도 2가지있음
-		        success: function(result) {
+		        success: function(result) { //통신에 성공하면 이result로 제이슨이 들어옴
 
 					var htmls="";
 					

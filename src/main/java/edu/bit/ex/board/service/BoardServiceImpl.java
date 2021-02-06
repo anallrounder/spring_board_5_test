@@ -58,7 +58,6 @@ public class BoardServiceImpl implements BoardService {
 	public void modifyBoard(BoardVO boardVO) {
 		log.info("modified");
 		mapper.modify(boardVO);
-		
 	}
 
 	@Override
