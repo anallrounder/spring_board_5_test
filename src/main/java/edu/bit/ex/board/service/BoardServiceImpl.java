@@ -87,11 +87,18 @@ public class BoardServiceImpl implements BoardService {
 		mapper.hitUpdate(boardVO);
 	}
 
-//	@Override
-//	public BoardVO setCri(Criteria cri) {
-//		
-//		return null;
-//	}
+	@Override
+	public BoardVO get(int bId) {
+		log.info("get");
+		return mapper.read(bId);
+	}
+
+	@Override
+	public void remove(int bId) {
+		log.info("deleted");
+		mapper.delete(bId);	
+	}
+
 
 
 

@@ -21,6 +21,10 @@ public interface BoardService {
 	public void replyBoard(BoardVO boardVO);	// 댓글
 	public void upHit(BoardVO boardVO);	// 조회수
 
+	//RESTful
+	public BoardVO get(int getbId); 
+	public void remove(int getbId); 
+
 
 	
 	

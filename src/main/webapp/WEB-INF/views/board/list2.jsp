@@ -406,19 +406,19 @@
 					</p>
 
 					<!-- DataTales Example -->
+					
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">DataTables
-								Example</h6><br>
+							<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+							<br>
 							<div class="form-group row pull-right">
 								<div class="col-xs-8">
 									<input class="form-control" type="text"  size="20">
-								</div>
+								</div> &nbsp;
 								<div class="col-xs-2">
 									<button class="btn btn-primary" type="button"> 검색 </button>
 								</div>
 							</div>
-						
 						</div>
 						
 						<div class="card-body">
