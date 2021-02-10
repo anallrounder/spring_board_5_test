@@ -99,12 +99,12 @@ public class BoardServiceImpl implements BoardService {
 		mapper.delete(bId);	
 	}
 
+	@Override
+	public void modify(BoardVO boardVO) {
+		log.info("modified");
+		mapper.modify(boardVO);
+	}
 
 
-
-
-
-	
-	
 
 }

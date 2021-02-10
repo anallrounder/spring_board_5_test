@@ -21,4 +21,6 @@ public interface BoardMapper {
 	public void updateShape(BoardVO boardVO);
 	public void insertReply(BoardVO boardVO);
 	public void hitUpdate(BoardVO boardVO);
+	
+	public void insertBoard(BoardVO boardVO); //public void insert(BoardVO boardVO);와 같은거.
 }

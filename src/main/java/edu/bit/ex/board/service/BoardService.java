@@ -7,8 +7,8 @@ import edu.bit.ex.board.vo.BoardVO;
 
 public interface BoardService {
 
-	public List<BoardVO> getList();
-	//public List<BoardVO> getTables();
+	public List<BoardVO> getList(); // 리스트 조회
+	//public List<BoardVO> getTables(); // sb-admin table 리스트 조회
 	
 	public List<BoardVO> getList(Criteria cri);// 글 목록 조회
 	public int getTotal(Criteria cri); //글 갯수
@@ -22,11 +22,8 @@ public interface BoardService {
 	public void upHit(BoardVO boardVO);	// 조회수
 
 	//RESTful
-	public BoardVO get(int getbId); 
-	public void remove(int getbId); 
-
-
-	
-	
+	public BoardVO get(int getbId); //리스트
+	public void remove(int getbId); //삭제
+	public void modify(BoardVO boardVO); //수정
 
 }

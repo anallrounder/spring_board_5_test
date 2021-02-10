@@ -24,20 +24,20 @@
 	});
  */
  
-	 $(document).ready(function() {
-		$(".a-del").click(function(event) { // id가 아니고 클래스로 받아오는것이 첫번째 포인트! 
+	 $(document).ready(function() { //클래스 첫 번째 포인트.
+		$(".a-del").click(function(event) { //id는 한번만 calss는 여러번 선택 가능.
+			//하나의 id는 한 문서에서 한 번만 사용이 가능(가장 마지막 혹은 처음게 선택). 하나의 class는 
 			event.preventDefault();
 			//alert("a-del click");
 			console.log("a-del click");
 
-			var tr = $(this).parent().parent();
+			var tr = $(this).parent().parent();//자바스크립트 클로저
 
 			$.ajax({
 				type : 'DELETE', //method
 				url : $(this).attr("href"), //주소를 받아오는 것이 두 번째 포인트.
 				cache : false,
 				success : function(result) {
-				//	alert("result: " + result)
 					console.log("result: " + result);
 					if (result == "SUCCESS") {
 						$(tr).remove();
@@ -74,7 +74,7 @@
 					href="${pageContext.request.contextPath}/restful/board/${vo.bId}">${vo.bTitle}</a></td>
 				<td>${vo.bDate}</td>
 				<td>${vo.bHit}</td>
-				<td><a class="a-del" href="${pageContext.request.contextPath}/restful/board/${vo.bId}">삭제</a></td>
+				<td><a class="a-del" data-bid='${vo.bId}' href="${pageContext.request.contextPath}/restful/board/${vo.bId}">삭제</a></td>
 			</tr>
 		</c:forEach>
 		<tr>

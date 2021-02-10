@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,6 @@ import edu.bit.ex.board.service.BoardService;
 import edu.bit.ex.board.vo.BoardVO;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-
 
 // REST: REpresentational State Transfer
 // 하나의 URI가 하나의 고유한 리소스를 대표하도록 설계된 개념 
@@ -45,12 +45,13 @@ public class RestBoardController {
 	}
 	
 	//2. 컨턴츠뷰는 제목을 눌렀을 때, board/200이렇게 넘어와야한다. 
-	@GetMapping("/board/{bId}") //이거 처리하는방법이 1)PathVariable로 처리해도 되고,(아래처럼)
-	//public String rest_content_view(@PathVariable("bId") String bId, Model model) {
-	public String rest_content_view(BoardVO boardVO, Model model) { // 2)커맨드 객체가 가장 좋다.
-		log.info("rest_content_view");
-		model.addAttribute("content_view", boardService.get(boardVO.getbId()));
-		return "board/content_view";
+	@GetMapping("/board/{bId}")//이거 처리하는방법이 1)PathVariable로 처리해도 되고,(아래처럼)
+	   public ModelAndView rest_content_view(BoardVO boardVO, ModelAndView mav) {// 2)커맨드 객체가 가장 좋다.
+		//public String rest_content_view(@PathVariable("bId") String bId, Model model) {
+	      log.info("rest_content_view");
+	      mav.setViewName("rest/rest_content_view");
+	      mav.addObject("content_view", boardService.get(boardVO.getbId()));
+	      return mav;
 	}
 	
 	//3. delete
@@ -68,10 +69,26 @@ public class RestBoardController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 댓글 삭제가 실패하면 실패 상태메세지 저장
-			 entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+			 entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);//400
 		}
 		// 삭제 처리 HTTP 상태 메시지 리턴
         return entity;
 	}
 	
+	//4. 수정 _이게 맞는지 모르겠다. 일단시도.
+	@PutMapping("/board/{bId}")
+	public ResponseEntity<String> rest_modify(BoardVO boardVO, Model model) {
+		ResponseEntity<String> entity = null; 
+		log.info("rest_modify");
+		
+		try {
+			boardService.modify(boardVO);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);//400
+		}
+        return entity;
+	}
+
 }
