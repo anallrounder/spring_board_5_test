@@ -24,6 +24,7 @@ public interface BoardService {
 	//RESTful
 	public BoardVO get(int getbId); //리스트
 	public void remove(int getbId); //삭제
-	public void modify(BoardVO boardVO); //수정
+	public int update(BoardVO boardVO); //수정
+	public void insert(BoardVO boardVO); // 글 등록
 
 }

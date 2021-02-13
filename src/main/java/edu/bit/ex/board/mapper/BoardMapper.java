@@ -15,7 +15,7 @@ public interface BoardMapper {
 	
 	public void insert(BoardVO boardVO);
 	public BoardVO read(int bId);
-	public void modify(BoardVO boardVO);
+	public int modify(BoardVO boardVO);
 	public void delete(int bId);
 	public BoardVO readyToReply(int bId);
 	public void updateShape(BoardVO boardVO);

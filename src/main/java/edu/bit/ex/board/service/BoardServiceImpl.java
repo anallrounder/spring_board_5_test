@@ -87,6 +87,10 @@ public class BoardServiceImpl implements BoardService {
 		mapper.hitUpdate(boardVO);
 	}
 
+	/*
+	RESTful
+	*/
+	
 	@Override
 	public BoardVO get(int bId) {
 		log.info("get");
@@ -100,11 +104,16 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void modify(BoardVO boardVO) {
+	public int update(BoardVO boardVO) {
 		log.info("modified");
-		mapper.modify(boardVO);
+		
+		return mapper.modify(boardVO);
 	}
 
-
+	@Override
+	public void insert(BoardVO boardVO) {
+		log.info("inserted");
+		mapper.insert(boardVO);	
+	}
 
 }

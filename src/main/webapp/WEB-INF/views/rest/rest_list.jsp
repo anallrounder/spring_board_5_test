@@ -69,16 +69,15 @@
 			<tr>
 				<td>${vo.bId}</td>
 				<td>${vo.bName}</td>
-				<td><c:forEach begin="1" end="${vo.bIndent}">-</c:forEach> <a
-					id="a-content"
-					href="${pageContext.request.contextPath}/restful/board/${vo.bId}">${vo.bTitle}</a></td>
+				<td><c:forEach begin="1" end="${vo.bIndent}">[re]</c:forEach> 
+				<a id="a-content" href="${pageContext.request.contextPath}/restful/board/${vo.bId}">${vo.bTitle}</a></td>
 				<td>${vo.bDate}</td>
 				<td>${vo.bHit}</td>
 				<td><a class="a-del" data-bid='${vo.bId}' href="${pageContext.request.contextPath}/restful/board/${vo.bId}">삭제</a></td>
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="5"><a href="write_view">글작성</a></td>
+			<td colspan="5"><a href="${pageContext.request.contextPath}/restful/board/rest_write_view">글작성</a></td>
 		</tr>
 	</table>
 </body>
