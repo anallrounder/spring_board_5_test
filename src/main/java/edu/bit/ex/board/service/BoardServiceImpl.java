@@ -44,37 +44,37 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void writeBoard(BoardVO boardVO) {
-		log.info("inserted");
+		log.info("inserted-----------");
 		mapper.insert(boardVO);	
 	}
 
 	@Override
 	public BoardVO getBoard(int bId) {
-		log.info("getBoard");
+		log.info("getBoard--------------");
 		return mapper.read(bId);	
 	}
 
 	@Override
 	public void modifyBoard(BoardVO boardVO) {
-		log.info("modified");
+		log.info("modified-----------");
 		mapper.modify(boardVO);
 	}
 
 	@Override
 	public void deleteBoard(int bId) {
-		log.info("Board deleted");
+		log.info("Board deleted-----------");
 		mapper.delete(bId);	
 	}
 
 	@Override
 	public BoardVO getReplyBoard(int bId) {
-		log.info("getReplyBoard");
+		log.info("getReplyBoard-----------");
 		return mapper.readyToReply(bId);	
 	}
 
 	@Override
 	public void replyBoard(BoardVO boardVO) {
-		log.info("replied");
+		log.info("replied-----------");
 		//mapper.reply(boardVO);
 		mapper.updateShape(boardVO);
 		mapper.insertReply(boardVO);
@@ -83,7 +83,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void upHit(BoardVO boardVO) {
-		log.info("upHit");
+		log.info("upHit-----------");
 		mapper.hitUpdate(boardVO);
 	}
 
@@ -93,26 +93,26 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public BoardVO get(int bId) {
-		log.info("get");
+		log.info("get-----------");
 		return mapper.read(bId);
 	}
 
 	@Override
 	public void remove(int bId) {
-		log.info("deleted");
+		log.info("deleted-----------");
 		mapper.delete(bId);	
 	}
 
 	@Override
 	public int update(BoardVO boardVO) {
-		log.info("modified");
+		log.info("modified-----------");
 		
 		return mapper.modify(boardVO);
 	}
 
 	@Override
 	public void insert(BoardVO boardVO) {
-		log.info("inserted");
+		log.info("inserted-----------");
 		mapper.insert(boardVO);	
 	}
 

@@ -48,7 +48,7 @@
 	right: 20%;
 	left: 20%;
 }
-/* 왜 부트스트랩으로 class="position:absolute top-20 left:20" 이런식으로 주면 안먹는지 의문...!!! */
+/* 왜 부트스트랩으로 class="position:absolute top-20 left-20" 이런식으로 주면 안먹는지 의문...!!! */
 </style>
 </head>
 

@@ -14,7 +14,7 @@ public interface BoardService {
 	public int getTotal(Criteria cri); //글 갯수
 	
 	public void writeBoard(BoardVO boardVO); // 글 등록
-	public BoardVO getBoard(int getbId); 	// 글 작성 페이지
+	public BoardVO getBoard(int getbId); 	// 글 작성 페이지, 콘텐트뷰
 	public void modifyBoard(BoardVO boardVO);	//글 수정
 	public void deleteBoard(int getbId);	// 글 삭제
 	public BoardVO getReplyBoard(int getbId);	// 댓글 페이지
