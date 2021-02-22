@@ -46,12 +46,12 @@
 		</aop:aspect>
 	</aop:config>
 	
- 	<aop:config>
+  	<aop:config>
 		<aop:aspect ref="logAop">
 			<aop:pointcut id="publicM" expression="within(edu.bit.ex.board.service.*)" />
 			<aop:around pointcut-ref="publicM" method="loggerAop" />
 		</aop:aspect>
-	</aop:config>
+	</aop:config> 
 	
 
 	<!--Aspect : 공통기능이 들어 있는 클래스(예제, 로깅... 트랜잭션 .. ) 

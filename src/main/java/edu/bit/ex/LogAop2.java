@@ -1,4 +1,4 @@
-package edu.bit.ex.board.aop;
+package edu.bit.ex;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
