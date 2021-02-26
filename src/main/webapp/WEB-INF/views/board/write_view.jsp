@@ -23,7 +23,7 @@
 			</tr>
 			<tr >
 				<td colspan="2"> <input type="submit" value="입력"> &nbsp;&nbsp;
-				<a href="/ex/board/list">목록 보기</a>_</td>
+				<a href="/ex/board/list">목록 보기</a></td>
 			</tr>
 		</form>
 	</table>
